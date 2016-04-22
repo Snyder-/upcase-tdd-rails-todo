@@ -3,7 +3,7 @@ class TodosController < ApplicationController
   before_filter :authenticate
 
   def index
-    @todos = Todo.where(email: signed_in_user)
+    @todos = Todo.where(email: current_email)
   end
 
   def new
@@ -11,21 +11,17 @@ class TodosController < ApplicationController
   end
 
   def create
-    @todo = Todo.new(todo_params.merge(email: signed_in_user))
+    @todo = Todo.new(todo_params.merge(email: current_email))
     if @todo.save
       redirect_to root_path
     else
       render :new
     end
   end
-  
+
   private
 
   def todo_params
     params.require(:todo).permit(:name)
-  end
-
-  def signed_in_user
-    session[:current_email]
   end
 end
