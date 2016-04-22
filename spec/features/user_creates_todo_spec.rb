@@ -7,6 +7,6 @@ feature "User creates todo" do
     fill_in "Name", with: "Practice Coding"
     click_on "Create Todo"
 
-    expect(page).to have_css ".todo", text: "Practice Coding"
+    expect(page).to have_css ".todos li", text: "Practice Coding"
   end
 end

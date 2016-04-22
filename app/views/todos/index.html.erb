@@ -1,6 +1,8 @@
 <h1>Todos</h1>
 <%= link_to "New Todo", new_todo_path %>
 
-<% @todos.each do |todo| %>
-<p class="todo"><%= todo.name %></p>
-<% end %>
+<ol class="todos">
+  <% @todos.each do |todo| %>
+    <li><%= todo.name %></li>
+  <% end %>
+</ol>
