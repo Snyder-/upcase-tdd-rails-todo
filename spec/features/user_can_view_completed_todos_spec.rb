@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-feature "User can view completed todos" do
-  scenario "with completed todos" do
+feature 'User can view completed todos' do
+  scenario 'with completed todos' do
     sign_in
 
-    create_todo "Watch Force Awakens"
+    create_todo 'Watch Force Awakens'
 
-    click_on "Mark Completed"
+    click_on 'Mark Completed'
 
-    expect(page).to have_css ".todos li.completed", text: "Watch Force Awakens"
+    expect(page).to display_completed_todo("Watch Force Awakens")
   end
 end
