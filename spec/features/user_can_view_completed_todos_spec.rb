@@ -4,9 +4,7 @@ feature "User can view completed todos" do
   scenario "with completed todos" do
     sign_in
 
-    click_on "New Todo"
-    fill_in "Name", with: "Watch Force Awakens"
-    click_on "Create Todo"
+    create_todo "Watch Force Awakens"
 
     click_on "Mark Completed"
 
