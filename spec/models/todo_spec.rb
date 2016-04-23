@@ -21,3 +21,14 @@ describe Todo, '#complete!' do
     expect(todo).to be_completed
   end
 end
+
+describe Todo, '#incomplete!' do
+  it 'marks the todo incomplete' do
+    todo = Todo.create!(completed_at: nil)
+
+    todo.complete!
+    todo.incomplete!
+
+    expect(todo).to_not be_completed
+  end
+end

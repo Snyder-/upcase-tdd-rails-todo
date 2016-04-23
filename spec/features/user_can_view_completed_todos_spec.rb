@@ -8,6 +8,6 @@ feature 'User can view completed todos' do
 
     click_on 'Mark Completed'
 
-    expect(page).to display_completed_todo("Watch Force Awakens")
+    expect(page).to display_completed_todo('Watch Force Awakens')
   end
 end
